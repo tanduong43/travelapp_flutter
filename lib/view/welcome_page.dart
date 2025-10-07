@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/widgets/app_large_text.dart';
+import 'package:travelapp/widgets/app_text.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -26,6 +28,29 @@ class _WelcomePageState extends State<WelcomePage> {
                 //được sử dụng để hiển thị hình ảnh làm nền.
                 image: AssetImage("assets/images/" + images[index]),
                 fit: BoxFit.cover, //Hình ảnh sẽ bao phủ toàn bộ Container
+              ),
+            ),
+            child: Container(
+              margin: EdgeInsets.only(top: 150, left: 20, right: 20),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppLargeText(text: "Trips"),
+                      AppText(text: "Mountain", size: 30),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 250,
+                        child: AppText(
+                          text: "Nguyễn Tấn Dương đẹp zai nhất sever trái đất",
+                          size: 16,
+                          color: Colors.black45,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           );
