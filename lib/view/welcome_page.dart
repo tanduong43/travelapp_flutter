@@ -16,19 +16,17 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
-        //PageView.builder trong Flutter là widget tạo danh sách các trang (page) mà người dùng có thể vuốt qua lại (swipe)
-        scrollDirection:
-            Axis.vertical, //vuốt lên xuống (giống cuộn dọc trang web).
+        //PageView.builder trong Flutter là widget tạo danh sách các trang (page)
+        //mà người dùng có thể vuốt qua lại (swipe)
+        scrollDirection: Axis.vertical, //vuốt lên xuống (giống cuộn dọc trang web).
         //scrollDirection: Axis.horizontal vuốt ngang (trái ↔ phải).
         itemCount: images.length, // xác định số lượng trang trong PageView.
         itemBuilder: (_, index) {
           return Container(
             width: double.maxFinite,
             height: double.maxFinite,
-            decoration: BoxDecoration(
-              //Là một lớp dùng để trang trí
-              image: DecorationImage(
-                //được sử dụng để hiển thị hình ảnh làm nền.
+            decoration: BoxDecoration(//Là một lớp dùng để trang trí
+              image: DecorationImage(//được sử dụng để hiển thị hình ảnh làm nền.
                 image: AssetImage("assets/images/" + images[index]),
                 fit: BoxFit.cover, //Hình ảnh sẽ bao phủ toàn bộ Container
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/view/navpages/main_page.dart';
 import 'package:travelapp/view/welcome_page.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: WelcomePage(),
+      home: MainPage(),
       debugShowCheckedModeBanner: false,
     );
   }
