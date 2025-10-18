@@ -55,8 +55,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     ],
                   ),
                   Column(
-                    children: List.generate(3, (indexDots) {
-                      //generator(int index) hàm (hoặc lambda) tạo giá trị cho từng phần tử, index là vị trí từ 0
+                    children: List.generate(3, (indexDots) {//Tạo ra 3 phần tử và (indexDots) → tên biến đại diện cho vị trí của phần tử đó (0, 1, 2).
+                      //generator(int index) hàm (hoặc lambda) tạo giá trị cho từng phần tử, indexDots là vị trí từ 0 đến 2
                       // 3:length số phần tử trong danh sách
                       return Container(
                         margin: EdgeInsets.only(bottom: 2),
