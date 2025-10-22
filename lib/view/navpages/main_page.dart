@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/view/navpages/search_page.dart';
 
 import 'bar_item_page.dart';
-import 'home_page.dart';
+import '../home_page.dart';
 import 'my_page.dart';
 
 class MainPage extends StatefulWidget{

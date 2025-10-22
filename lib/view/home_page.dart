@@ -11,7 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  //Trong Dart, từ khóa with dùng để “trộn” (mix) thêm các tính năng hoặc phương thức của một lớp khác vào lớp hiện tại.
+  //Trong Dart, từ khóa with dùng để “trộn” (mix) thêm các tính năng hoặc phương thức
+  // của một lớp khác vào lớp hiện tại.
   //TickerProviderStateMixin cung cấp cho class của bạn khả năng:
   // Tạo ra Ticker, thứ dùng để cung cấp nhịp cho animation.
   // Giúp bạn có thể viết vsync: this trong AnimationController.
@@ -161,6 +162,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
     );
   }
+
 }
 
 class CircleTabIndicator extends Decoration {
@@ -171,27 +173,37 @@ class CircleTabIndicator extends Decoration {
 
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
+    //onChanged dùng để thông báo khi indicator cần được vẽ lại (ít khi dùng ở đây).
     // TODO: implement createBoxPainter
     return _CirclePainter(color: color, radius: radius);
   }
 }
 
 class _CirclePainter extends BoxPainter {
+  //BoxPainter không phải là widget trực tiếp mà là một công cụ vẽ,
+  //hoạt động thông qua Canvas để thao tác với các hình vẽ trên màn hình.
   final Color color;
-  double radius;
+  double radius;//bán kính chấm tròn
 
   _CirclePainter({required this.color, required this.radius});
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    Paint _paint = Paint();
+    Paint _paint = Paint();//Paint dùng để xác định cách vẽ (màu, độ mịn, kiểu stroke...).
     _paint.color = color;
-    _paint.isAntiAlias = true;
-    final Offset circleOffset = Offset(
+    _paint.isAntiAlias = true;//giúp viền tròn được mịn, không răng cưa.
+    final Offset circleOffset = Offset( //tính toán vị trí vẽ
       configuration.size!.width / 2 - radius / 2,
       configuration.size!.height - radius,
     );
-
+    //configuration.size là kích thước của tab hiện tại.
+    // width / 2 → căn giữa theo chiều ngang.
+    // height - radius → đặt chấm ngay dưới cùng của tab.
+    // Tạo Offset để chỉ định vị trí của chấm tròn trên canvas.
     canvas.drawCircle(offset + circleOffset, radius, _paint);
+    //offset là vị trí bắt đầu của vùng tab hiện tại.
+    // circleOffset là vị trí tương đối bên trong tab.
+    // offset + circleOffset là vị trí chính xác để vẽ.
+    // drawCircle() vẽ một hình tròn tại vị trí đó.
   }
 }

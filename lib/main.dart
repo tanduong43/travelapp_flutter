@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/view/navpages/home_page.dart';
+import 'package:travelapp/view/detail_page.dart';
+import 'package:travelapp/view/home_page.dart';
 import 'package:travelapp/view/navpages/main_page.dart';
 import 'package:travelapp/view/welcome_page.dart';
 
@@ -13,7 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MainPage(),
+      home: DetailPage(),
       debugShowCheckedModeBanner: false,
     );
   }
